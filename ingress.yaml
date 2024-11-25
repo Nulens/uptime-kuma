@@ -6,7 +6,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-issuer
 spec:
   rules:
-    - host: wordpress.cloudcomp-19.ucll.cloud
+    - host: uptimekuma.cloudcomp-19.ucll.cloud
       http:
         paths:
           - path: /
@@ -18,6 +18,6 @@ spec:
                   number: 80
 
   tls:
-  - hosts:
-    - uptimekuma.cloudcomp-19.ucll.cloud 
-    secretName: uptime-kuma-tls
+    - hosts:
+        - uptimekuma.cloudcomp-19.ucll.cloud
+      secretName: uptime-kuma-tls
