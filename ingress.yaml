@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uptime-kuma-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-issuer
+spec:
+  rules:
+    - host: wordpress.cloudcomp-19.ucll.cloud
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: uptime-kuma-service
+                port:
+                  number: 80
+
+  tls:
+  - hosts:
+    - uptimekuma.cloudcomp-19.ucll.cloud 
+    secretName: uptime-kuma-tls
